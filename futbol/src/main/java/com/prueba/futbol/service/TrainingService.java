@@ -62,7 +62,7 @@ public class TrainingService {
             result.setPlayerId(player.getPlayerId());
             result.setTrainingId(player.getTrainingId());
             result.setShotPower(player.getShotPower());
-            result.setSpped(player.getSpeed());
+            result.setSpeed(player.getSpeed());
             result.setPasses(player.getPasses());
             result.setScore(score);
 

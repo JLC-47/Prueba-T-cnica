@@ -26,8 +26,8 @@ public class TrainingResult {
     @Column(name = "shot_power")
     private Double shotPower;
 
-    @Column(name = "spped")
-    private Double spped;
+    @Column(name = "speed")
+    private Double speed;
 
     @Column(name = "passes")
     private Integer passes;
