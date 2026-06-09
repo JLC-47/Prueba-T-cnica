@@ -79,7 +79,7 @@ public class TrainingService {
 
         List<Training> trainings = trainingRepository.findAll();
 
-        if (trainings.size() < 3) {
+        if (trainings.size() < 1) {
             response.setMessage("No hay suficiente información");
             response.setData(new ArrayList<>());
 
