@@ -28,16 +28,32 @@ public class TrainingController {
 
     @PostMapping("/save-training")
     public ResponseEntity<MessageResponseDTO> saveTraining(@RequestBody TrainingRequestDTO request){
-
-        MessageResponseDTO response= trainingService.saveTraining(request);
-
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
+        try {
+            MessageResponseDTO response= trainingService.saveTraining(request);
+            return ResponseEntity.status(HttpStatus.ACCEPTED).body(response);
+            
+        } catch (Exception e) {
+            
+            MessageResponseDTO message = new MessageResponseDTO();
+            message.setMessage("A ocurrido un error");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(message); 
+        }
     }
 
     @GetMapping("/starting-team")
     public HttpGlobalResponse<List<StartingTeamResponseDTO>> getStartingTeam() {
-        HttpGlobalResponse<List<StartingTeamResponseDTO>> response = trainingService.getStartingTeam();
-        return response;
+
+        try {
+            HttpGlobalResponse<List<StartingTeamResponseDTO>> response = trainingService.getStartingTeam();
+            return response;
+            
+        } catch (Exception e) {
+            HttpGlobalResponse<List<StartingTeamResponseDTO>> message = new HttpGlobalResponse<>();
+            message.setData(null);
+            message.setMessage("Ha ocurrido un error");
+
+            return message;
+        }
     }
 
 }
